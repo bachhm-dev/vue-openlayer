@@ -17,3 +17,4 @@ services:
       - .buildkite/secrets:/app/buildkite-secrets
     environment:
       - BUILDKITE_BRANCH
+      - PATH:/root/.local/bin:$PATH
