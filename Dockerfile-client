@@ -1,11 +1,6 @@
 FROM node:16
 
-ADD package.json package-lock.json /app/client/
-
-RUN npm install -g @babel/core @babel/cli node-gyp@3.6.2
-
-RUN cd client \
-  && npm install \
+RUN npm install \
   && npm rebuild node-sass
 
 ADD . /app/
