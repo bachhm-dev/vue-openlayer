@@ -11,6 +11,7 @@ RUN pip install awscli --upgrade --user
 
 # USER buildkite
 FROM node:16
+ENV PATH=/root/.local/bin:$PATH
 WORKDIR /usr/app
 COPY ./ /usr/app
 RUN npm install
