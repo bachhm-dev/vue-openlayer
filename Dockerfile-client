@@ -1,11 +1,11 @@
-FROM node:16
-RUN apt-get update || : && apt-get install python -y
+FROM python:3.7
 
 # RUN apt-get install python3.6
 RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
 RUN unzip awscli-bundle.zip
 RUN ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 
+FROM node:16
 WORKDIR /usr/app
 COPY ./ /usr/app
 RUN npm install
