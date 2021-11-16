@@ -6,7 +6,8 @@ RUN npm install
 ADD . /app/
 
 FROM python:3.7
-RUN useradd -ms /bin/bash buildkite
+# RUN useradd -ms /bin/bash buildkite
+ENV PATH=/root/.local/bin:$PATH
 USER root
 # RUN apt-get install python3.6
 # RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
@@ -14,6 +15,6 @@ USER root
 # RUN ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 RUN pip install --upgrade pip
 RUN pip install awscli --upgrade --user
-ENV PATH=/root/.local/bin:$PATH
-USER buildkite
+
+# USER buildkite
 
