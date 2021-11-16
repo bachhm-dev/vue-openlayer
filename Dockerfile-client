@@ -1,6 +1,7 @@
 FROM node:16
 
-RUN npm install \
-  && npm rebuild node-sass
+WORKDIR /usr/app
+COPY ./ /usr/app
+RUN npm install
 
 ADD . /app/
