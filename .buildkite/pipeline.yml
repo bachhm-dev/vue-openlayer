@@ -1,0 +1,31 @@
+steps:
+
+#  - name: ":node: build corporate client legacy"
+#    command: "bash client-build.sh corporate legacy"
+#    plugins:
+#      - docker-compose#v2.5.1:
+#          run: client_legacy
+#
+#  - name: ":node: build venue client legacy"
+#    command: "bash client-build.sh venue legacy"
+#    plugins:
+#      - docker-compose#v2.5.1:
+#          run: client_legacy
+
+  - name: ":node: build"
+    command: "bash client-build.sh"
+    plugins:
+    - docker-compose#v2.5.1:
+        run: client
+
+  - wait
+  
+  - name: ":vue: Deploy"
+    command: "bash deploy-stand-alone-app.sh"
+
+#
+#  - name: ":react: Deploy storybook"
+#    command: "bash deploy-stand-alone-app.sh storybook"
+
+
+

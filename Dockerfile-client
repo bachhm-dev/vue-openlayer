@@ -1,0 +1,14 @@
+FROM node:16
+
+RUN npm install --global yarn@1.22.4 \
+ && chmod +x /usr/local/lib/node_modules/yarn/bin/yarn.js
+
+ADD package.json client/package-lock.json /app/client/
+
+RUN npm install -g @babel/core @babel/cli node-gyp@3.6.2
+
+RUN cd client \
+  && yarn || true \
+  && npm rebuild node-sass
+
+ADD . /app/

@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    volumes:
+      - .buildkite/secrets:/app/buildkite-secrets
+    environment:
+      - BUILDKITE_BRANCH
+      - STAGING_DB_CONNECTION_STRING
+
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile-client
+    volumes:
+      - .buildkite/secrets:/app/buildkite-secrets
+    environment:
+      - BUILDKITE_BRANCH

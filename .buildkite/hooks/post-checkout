@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+aws s3 sync --sse aws:kms s3://${BUILDKITE_PLUGIN_S3_SECRETS_BUCKET}/${BUILDKITE_PIPELINE_SLUG}/secrets .buildkite/secrets
