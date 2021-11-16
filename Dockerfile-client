@@ -1,6 +1,6 @@
 FROM node:13.12.0-buster
 
-RUN apt-get install python3.6
+# RUN apt-get install python3.6
 RUN curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
 RUN unzip awscli-bundle.zip
 RUN ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
