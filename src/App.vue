@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <p>TEST MAP</p>
     <div id="map"></div>
   </div>
 </template>
