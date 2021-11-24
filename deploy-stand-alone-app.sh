@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-mkdir -p ~/.aws || true \
-  && cp .buildkite/secrets/credentials ~/.aws/credentials
+# mkdir -p ~/.aws || true \
+#   && cp .buildkite/secrets/credentials ~/.aws/credentials
 
 mkdir for_upload \
   && aws s3 cp s3://bachhm-build-artifacts/${1}/${FOLDER} for_upload --recursive \
